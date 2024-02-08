@@ -23,25 +23,12 @@ model Message {
   timestamp DateTime @default(now())
 }
 
-model Exchange_1 {
-  token0     String
-  token1     String
-  address    String   @id @unique
-  liquidity0 String
-  liquidity1 String
-}
-
-model Exchange_2 {
-  token0     String
-  token1     String
-  address    String   @id @unique
-  liquidity0 String
-  liquidity1 String
-}
-
-model PathData {
-  pathToken String   @id @unique
-  pathReach String
+model LiquidityPool {
+  pool_address    String @id @unique
+  token0_address  String
+  token1_address  String
+  token0_reserve  String
+  token1_reserve  String
 }
 
 // เมื่อเเก้ Database ให้ command นี้ด้วย npx prisma migrate dev --name init

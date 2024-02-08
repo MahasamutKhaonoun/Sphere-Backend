@@ -64,8 +64,8 @@ export class UsersService {
     const messageCount = await this.prisma.message.count();
 
     // If the message count exceeds 15, delete the oldest messages
-    if (messageCount > 15) {
-        const messagesToDelete = messageCount - 15;
+    if (messageCount > 100) {
+        const messagesToDelete = messageCount - 100;
 
         // Retrieve the IDs of the oldest messages
         const oldestMessageIds = await this.prisma.message.findMany({
